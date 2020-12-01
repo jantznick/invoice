@@ -1,2 +1,2 @@
-# farkel
-Classic Dice Game Farkel in Webapp Form
+# invoice
+Webapp to create invoices and estimates
