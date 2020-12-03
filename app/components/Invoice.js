@@ -44,7 +44,7 @@ class Invoice extends React.Component {
 							<div className="right">
 								<Input
 									input='text'
-									name='sentFromName'
+									name='sentFrom.name'
 									placeholder={sentFrom.name}
 								/>
 								<Input
@@ -109,7 +109,9 @@ class Invoice extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-	return state;
+	return {
+		currentDocument: state.currentDocument
+	}
 };
 
 export default connect(mapStateToProps)(Invoice)

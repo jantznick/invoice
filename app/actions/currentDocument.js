@@ -1,4 +1,4 @@
-export const updateDocumentData = data => ({
+export const updateDocumentData = (data) => ({
 	type: 'UPDATE_DOCUMENT_DATA',
 	payload: data
 });

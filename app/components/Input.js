@@ -6,8 +6,10 @@ import {updateDocumentData} from '../actions/currentDocument';
 class Input extends React.Component {
 
 	loseFocus = event => {
-		console.log(event.target.value);
-		this.props.updateDocumentData(event.target.value);
+		this.props.updateDocumentData({
+			name: event.target.name,
+			value: event.target.value
+		});
 	};
 
 	render() {
@@ -37,12 +39,12 @@ class Input extends React.Component {
 	}
 }
 
-const mapStateToProps = (state) => {
-	return state;
+// const mapStateToProps = (state) => {
+// 	return state;
+// };
+
+const mapDispatchToProps = {
+	updateDocumentData
 };
 
-const mapDispatchToProps = (dispatch) => {
-	return updateDocumentData;
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Input)
+export default connect(null, mapDispatchToProps)(Input)

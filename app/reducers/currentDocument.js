@@ -1,3 +1,5 @@
+import {combineReducers} from 'redux';
+
 const initialState = {
 	type: 'invoice',
 	data: {
@@ -49,13 +51,39 @@ const initialState = {
 	}
 };
 
-const currentDocument = (state = initialState, action) => {
+const type = (state = initialState.type, action) => {
 	switch (action.type) {
-		case 'UPDATE_DOCUMENT_DATA':
-			return data;
 		default:
 			return state;
 	}
 }
+
+const data = (state = initialState.data, action) => {
+	switch (action.type) {
+		case 'UPDATE_DOCUMENT_DATA':
+			return {
+				...state,
+				sentFrom: {
+					...state.sentFrom,
+					name: action.payload.value
+				}
+			};
+		default:
+			return state;
+	}
+}
+
+const settings = (state = initialState.settings, action) => {
+	switch (action.type) {
+		default:
+			return state;
+	}
+}
+
+const currentDocument = combineReducers({
+	type,
+	data,
+	settings
+})
 
 export default currentDocument
